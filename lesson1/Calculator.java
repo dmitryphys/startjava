@@ -4,29 +4,25 @@ public class Calculator {
 		int b = 3; // задайте значение для переменной 'b'
 		int res = a;
 		char mathOperation = '*'; // выберите математическую операцию
+
 		if(mathOperation == '+') {
 			res = a + b;
 			System.out.println(a + " " + mathOperation + " " + b + " = " + res);
-		}
-		if(mathOperation == '-') {
+		} else if(mathOperation == '-') {
 			res = a - b;
 			System.out.println(a + " " + mathOperation + " " + b + " = " + res);
-		}
-		if(mathOperation == '*') {
+		} else if(mathOperation == '*') {
 			res = a * b;
 			System.out.println(a + " " + mathOperation + " " + b + " = " + res);
-		}
-		if(mathOperation == '/') {
+		} else if(mathOperation == '/') {
 			res = a / b;
 			System.out.println(a + " " + mathOperation + " " + b + " = " + res);
-		}
-		if(mathOperation == '^') {
+		} else if(mathOperation == '^') {
 			for(int i = 2; i <= b; i++) {
 				res *= a;
 			}
 			System.out.println(a + " " + mathOperation + " " + b + " = " + res);
-		}
-		if(mathOperation == '%') {
+		} else if(mathOperation == '%') {
 			res = a % b;
 			System.out.println(a + " " + mathOperation + " " + b + " = " + res);
 		}

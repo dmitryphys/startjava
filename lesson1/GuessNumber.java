@@ -15,6 +15,7 @@ public class GuessNumber {
 			} while(myNumber != computerNumber);
 			
 			System.out.println("Вы угадали!");
+		
 		} else {System.out.println("error");
 		}
 	}

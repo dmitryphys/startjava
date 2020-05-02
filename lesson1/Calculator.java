@@ -3,38 +3,32 @@ public class Calculator {
 		int a = 6; // задайте значение для переменной 'a'
 		int b = 3; // задайте значение для переменной 'b'
 		int res = a;
-		char plus = '+';
-		char minus = '-';
-		char proizv = '*';
-		char del = '/';
-		char step = '^';
-		char ost = '%';
-		char choise = '^'; // выберите математическую операцию
-		if(choise == plus) {
+		char mathOperation = '*'; // выберите математическую операцию
+		if(mathOperation == '+') {
 			res = a + b;
-			System.out.println(a + " " + choise + " " + b + " = " + res);
+			System.out.println(a + " " + mathOperation + " " + b + " = " + res);
 		}
-		if(choise == minus) {
+		if(mathOperation == '-') {
 			res = a - b;
-			System.out.println(a + " " + choise + " " + b + " = " + res);
+			System.out.println(a + " " + mathOperation + " " + b + " = " + res);
 		}
-		if(choise == proizv) {
+		if(mathOperation == '*') {
 			res = a * b;
-			System.out.println(a + " " + choise + " " + b + " = " + res);
+			System.out.println(a + " " + mathOperation + " " + b + " = " + res);
 		}
-		if(choise == del) {
+		if(mathOperation == '/') {
 			res = a / b;
-			System.out.println(a + " " + choise + " " + b + " = " + res);
+			System.out.println(a + " " + mathOperation + " " + b + " = " + res);
 		}
-		if(choise == step) {
+		if(mathOperation == '^') {
 			for(int i = 2; i <= b; i++) {
-				res = res * a;
+				res *= a;
 			}
-			System.out.println(a + " " + choise + " " + b + " = " + res);
+			System.out.println(a + " " + mathOperation + " " + b + " = " + res);
 		}
-		if(choise == ost) {
+		if(mathOperation == '%') {
 			res = a % b;
-			System.out.println(a + " " + choise + " " + b + " = " + res);
+			System.out.println(a + " " + mathOperation + " " + b + " = " + res);
 		}
 	}
 }

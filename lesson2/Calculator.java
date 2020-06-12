@@ -1,22 +1,19 @@
 public class Calculator {
 	private int a;
 	private int b;
-	char mathOperation; // выберите математическую операцию
+	char mathOperation;
+	private int res;
 
 	public int getA() {
 		return a;
+	}
+	public void setA(int a) {
+		this.a = a;
 	}
 
 	public int getB() {
 		return b;
 	}
-
-	public void setA(int a) {
-		this.a = a;
-	}
-
-	private int res;
-
 	public void setB(int b) {
 		this.b = b;
 	}
@@ -46,18 +43,14 @@ public class Calculator {
 			case '^':
 				res = 1;
 				for(int i = 1; i <= b; i++) {
-						res *= a;
-					}
+					res *= a;
+				}
 				System.out.println(a + " " + mathOperation + " " + b + " = " + res);
 				break;
 			case '%':
 				res = a % b;
 				System.out.println(a + " " + mathOperation + " " + b + " = " + res);
-				break;
-			// default:
-			// break;
 		}
-	return res;
+		return res;
 	}
 }
-	

@@ -2,9 +2,8 @@ public class Player {
 	private String name;
 	private int number;
 
-	public Player(String name, int number) {
+	public Player(String name) {
 		this.name = name;
-		this.number = number;
 	}
 
 	public String getName() {
@@ -13,5 +12,8 @@ public class Player {
 
 	public int getNumber() {
 		return number;
+	}
+	public void setNumber(int number) {
+		this.number = number;
 	}
 }

@@ -8,18 +8,15 @@ public class CalculatorTest {
 		
 		do {
 			System.out.print("Введите первое число: ");
-			int number1 = scan.nextInt();
+			calculatorOne.setA(scan.nextInt());
 
 			System.out.print("Введите знак математической операции: ");
-			String operation = scan.next();
+			calculatorOne.setMathOperation(scan.next().charAt(0));
 			
 			System.out.print("Введите второе число: ");
-			int number2 = scan.nextInt();
+			calculatorOne.setB(scan.nextInt());
 
-			calculatorOne.setA(number1);
-			calculatorOne.setMathOperation(operation);
-			calculatorOne.setB(number2);
-			calculatorOne.getRes();
+			calculatorOne.calculate();
 			do {
 				System.out.print("Хотите продолжить? [да/нет]:");
 				reply = scan.next();

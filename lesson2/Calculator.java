@@ -1,14 +1,14 @@
 public class Calculator {
 	private int a;
 	private int b;
-	private String mathOperation; // выберите математическую операцию
+	char mathOperation; // выберите математическую операцию
 
 	public int getA() {
 		return a;
 	}
 
 	public int getB() {
-	return b;
+		return b;
 	}
 
 	public void setA(int a) {
@@ -21,45 +21,43 @@ public class Calculator {
 		this.b = b;
 	}
 
-	public void setMathOperation(String mathOperation) {
+	public void setMathOperation(char mathOperation) {
 		this.mathOperation = mathOperation;
 	}
 
-	public int getRes() {
+	public int calculate() {
 		switch(mathOperation) {
-			case "+":
-			res = a + b;
-			System.out.println(a + " " + mathOperation + " " + b + " = " + res);
+			case '+':
+				res = a + b;
+				System.out.println(a + " " + mathOperation + " " + b + " = " + res);
 				break;
-			case "-":
-			res = a - b;
-			System.out.println(a + " " + mathOperation + " " + b + " = " + res);
+			case '-':
+				res = a - b;
+				System.out.println(a + " " + mathOperation + " " + b + " = " + res);
 				break;
-			case "*":
-			res = a * b;
-			System.out.println(a + " " + mathOperation + " " + b + " = " + res);
+			case '*':
+				res = a * b;
+				System.out.println(a + " " + mathOperation + " " + b + " = " + res);
 				break;
-			case "/":
-			res = a / b;
-			System.out.println(a + " " + mathOperation + " " + b + " = " + res);
+			case '/':
+				res = a / b;
+				System.out.println(a + " " + mathOperation + " " + b + " = " + res);
 				break;
-			case "^":
-			if(b == 0) {
+			case '^':
 				res = 1;
-			} else {
-				res = a;
-				for(int i = 2; i <= b; i++) {
-					res *= a;
-				}
-			}
-			System.out.println(a + " " + mathOperation + " " + b + " = " + res);
+				for(int i = 1; i <= b; i++) {
+						res *= a;
+					}
+				System.out.println(a + " " + mathOperation + " " + b + " = " + res);
 				break;
-			case "%":
-			res = a % b;
-			System.out.println(a + " " + mathOperation + " " + b + " = " + res);
+			case '%':
+				res = a % b;
+				System.out.println(a + " " + mathOperation + " " + b + " = " + res);
 				break;
 			// default:
 			// break;
 		}
-	return res;}
+	return res;
+	}
 }
+	

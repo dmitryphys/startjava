@@ -1,5 +1,5 @@
 public class Calculator {
-	private int a;
+	private int a; 
 	private int b;
 	char mathOperation;
 	private int res;

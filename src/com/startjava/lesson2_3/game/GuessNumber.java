@@ -1,3 +1,5 @@
+package com.startjava.lesson2_3.game;
+
 import java.util.Random;
 import java.util.Scanner;
 

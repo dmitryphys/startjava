@@ -6,46 +6,47 @@ public class Calculator {
     private int a;
     private int b;
     private String mathOperation;
-    private int res;
+    private int result;
+
+    public int getA() {
+        return a;
+    }
 
     public void setA(int a) {
         this.a = a;
+    }
+
+    public int getB() {
+        return b;
     }
 
     public void setB(int b) {
         this.b = b;
     }
 
+    public String getMathOperation() {
+        return mathOperation;
+    }
+
     public void setMathOperation(String mathOperation) {
         this.mathOperation = mathOperation;
     }
 
-
     public int calculate() {
         switch (mathOperation) {
             case "+":
-                res = a + b;
-                System.out.println(a + " " + mathOperation + " " + b + " = " + res);
-                break;
+                return result = a + b;
             case "-":
-                res = a - b;
-                System.out.println(a + " " + mathOperation + " " + b + " = " + res);
-                break;
+                return result = a - b;
             case "*":
-                res = a * b;
-                System.out.println(a + " " + mathOperation + " " + b + " = " + res);
-                break;
+                return result = a * b;
             case "/":
-                res = a / b;
-                System.out.println(a + " " + mathOperation + " " + b + " = " + res);
-                break;
+                return result = a / b;
             case "^":
-                System.out.println(a + " " + mathOperation + " " + b + " = " + Math.pow(a, b));
-                break;
+                return result = (int) Math.pow(a,b);
             case "%":
-                res = a % b;
-                System.out.println(a + " " + mathOperation + " " + b + " = " + res);
+                return result = a % b;
         }
-        return res;
+        return result;
     }
 }

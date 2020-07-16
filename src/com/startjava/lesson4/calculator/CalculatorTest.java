@@ -12,16 +12,15 @@ public class CalculatorTest {
             System.out.print("Введите математическое выражение: ");
             String mathEx = scan.nextLine();
             String[] splitMathEx = mathEx.split(" ");
-            String[] arrMathEx = splitMathEx;
-            calculator.setA(Integer.parseInt(arrMathEx[0]));
-            calculator.setMathOperation(arrMathEx[1]);
-            calculator.setB(Integer.parseInt(arrMathEx[2]));
+            calculator.setA(Integer.parseInt(splitMathEx[0]));
+            calculator.setMathOperation(splitMathEx[1]);
+            calculator.setB(Integer.parseInt(splitMathEx[2]));
 
             calculator.calculate();
-            System.out.println(calculator.getA() + " " + calculator.getMathOperation() + " " + calculator.getB() + " = " + calculator.calculate());
+
             do {
                 System.out.print("Хотите продолжить? [да/нет]:");
-                reply = scan.next();
+                reply = scan.nextLine();
             } while (!reply.equals("нет") && !reply.equals("да"));
         } while (!reply.equals("нет"));
     }

@@ -8,24 +8,12 @@ public class Calculator {
     private String mathOperation;
     private int result;
 
-    public int getA() {
-        return a;
-    }
-
     public void setA(int a) {
         this.a = a;
     }
 
-    public int getB() {
-        return b;
-    }
-
     public void setB(int b) {
         this.b = b;
-    }
-
-    public String getMathOperation() {
-        return mathOperation;
     }
 
     public void setMathOperation(String mathOperation) {
@@ -35,17 +23,32 @@ public class Calculator {
     public int calculate() {
         switch (mathOperation) {
             case "+":
-                return result = a + b;
+                result = a + b;
+                System.out.println(a + " " + mathOperation + " " + b + " = " + result);
+                break;
             case "-":
-                return result = a - b;
+                result = a - b;
+                System.out.println(a + " " + mathOperation + " " + b + " = " + result);
+                break;
             case "*":
-                return result = a * b;
+                result = a * b;
+                System.out.println(a + " " + mathOperation + " " + b + " = " + result);
+                break;
             case "/":
-                return result = a / b;
+                result = a / b;
+                System.out.println(a + " " + mathOperation + " " + b + " = " + result);
+                break;
             case "^":
-                return result = (int) Math.pow(a,b);
+                result = (int) Math.pow(a, b);
+                System.out.println(a + " " + mathOperation + " " + b + " = " + result);
+                break;
             case "%":
-                return result = a % b;
+                result = a % b;
+                System.out.println(a + " " + mathOperation + " " + b + " = " + result);
+                break;
+            default:
+                System.out.println("Данная математическая операция калькулятором не обрабатывается");
+                break;
         }
         return result;
     }

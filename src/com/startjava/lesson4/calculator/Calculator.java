@@ -20,7 +20,7 @@ public class Calculator {
         this.mathOperation = mathOperation;
     }
 
-    public int calculate() {
+    public void calculate() {
         switch (mathOperation) {
             case "+":
                 result = a + b;
@@ -50,6 +50,5 @@ public class Calculator {
                 System.out.println("Данная математическая операция калькулятором не обрабатывается");
                 break;
         }
-        return result;
     }
 }

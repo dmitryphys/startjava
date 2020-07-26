@@ -14,11 +14,10 @@ public class GuessNumberTest {
         System.out.print("Введите имя 2-го игрока: ");
         Player player2 = new Player(scan.next());
 
-        GuessNumber guessNumberOne = new GuessNumber(player1, player2);
+        GuessNumber game = new GuessNumber(player1, player2);
 
         do {
-            guessNumberOne.changeNumber();
-            guessNumberOne.play();
+            game.play();
             do {
                 System.out.print("Хотите продолжить? [да/нет]: ");
                 reply = scan.next();

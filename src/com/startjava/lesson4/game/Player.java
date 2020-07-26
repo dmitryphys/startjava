@@ -23,6 +23,10 @@ public class Player {
         return index;
     }
 
+    public void setIndex(int index) {
+        this.index = index;
+    }
+
     public void setNumber(int index, int number) {
         this.index = index;
         this.number[index] = number;

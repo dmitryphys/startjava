@@ -22,54 +22,64 @@ public class GuessNumber {
         do {
             for (int i = 0; i < count; i++) {
                 enterNumber(player1);
-                checkNumber(player1, i);
+                if (checkNumber(player1, i) == true) {
+                    break;
+                }
                 enterNumber(player2);
-                checkNumber(player2, i);
+                if (checkNumber(player2, i) == true) {
+                    break;
+                }
             }
             break;
         } while (true);
 
-        writeAboutLimits(player1.getAttempt() + 1, player1.getName(), player1.getNumbers()[player1.getAttempt()]);
-        writeAboutLimits(player2.getAttempt() + 1, player2.getName(), player2.getNumbers()[player2.getAttempt()]);
+        writeAboutLimits(player1);
+        writeAboutLimits(player2);
 
-        printNumbers(player1.getAttempt(), player1.getAttempt(), player1.getNumbers());
-        printNumbers(player2.getAttempt(), player2.getAttempt(), player2.getNumbers());
+        printNumbers(player1);
+        printNumbers(player2);
+    }
+
+    private void setUp() {
+        player1.fillNumbers();
+        player2.fillNumbers();
+        player1.setAttempt(0);
+        player2.setAttempt(0);
     }
 
     private void enterNumber(Player player) {
         System.out.print("Введите число для игрока " + player.getName() + ": ");
-        player.setNumbers(scan.nextInt());
+        player.setNumber(scan.nextInt());
     }
 
+    private boolean checkNumber(Player player, int attempt) {
+        int number = player.getNumbers()[attempt];
+        boolean isCompNumber = number == computerNumber;
+        if (isCompNumber) {
+            System.out.println("Игрок " + player.getName() + " угадал число " + computerNumber + " с " + (player.getAttempt()) + " попытки");
+        } else
+            if (number < computerNumber) {
+            System.out.println("Введенное Вами число " + number + " меньше того, что загадал компьютер");
+        } else if (number > computerNumber) {
+            System.out.println("Введенное Вами число " + number + " больше того, что загадал компьютер");
+        }
+        return isCompNumber;
+    }
 
-    private void checkNumber(Player player, int attempt) {
-        if (player.getNumbers()[attempt] == computerNumber) {
-            System.out.println("Игрок " + player.getName() + " угадал число " + computerNumber + " с " + (player.getAttempt() + 1) + " попытки");
-        } else if (player.getNumbers()[attempt] < computerNumber) {
-            System.out.println("Введенное Вами число " + player.getNumbers()[attempt] + " меньше того, что загадал компьютер");
-        } else if (player.getNumbers()[attempt] > computerNumber) {
-            System.out.println("Введенное Вами число " + player.getNumbers()[attempt] + " больше того, что загадал компьютер");
+    private void writeAboutLimits(Player player) {
+        if (player.getAttempt() == count && player.getNumbers()[player.getAttempt() - 1] != computerNumber) {
+            System.out.println("У игрока " + player.getName() + " закончились попытки!");
         }
     }
 
-    private void writeAboutLimits(int attemptsCount, String playerName, int playerNumber) {
-        if (attemptsCount == count && playerNumber != computerNumber) {
-            System.out.println("У игрока " + playerName + " закончились попытки!");
+    private void printNumbers(Player player) {
+        int counter = 0;
+        for (counter = 0; counter < player.getAttempt() - 1; counter++) {
+            System.out.print(player.getNumbers()[counter] + " ");
         }
-    }
-
-    private void printNumbers(int counter, int index, int[] array) {
-        for (counter = 0; counter < index; counter++) {
-            System.out.print(array[counter] + " ");
+        boolean isLastElement = counter == player.getAttempt() - 1;
+        if (isLastElement) {
+            System.out.println(player.getNumbers()[counter] + " ");
         }
-        if (index == counter) {
-            System.out.println(array[index] + " ");
-        }
-    }
-
-    private void setUp() {
-        player1.fillNumber();
-        player2.fillNumber();
-        player2.setAttempt(0);
     }
 }

@@ -4,7 +4,7 @@ import java.util.Arrays;
 
 public class Player {
     private String name;
-    private int[] numbers = new int[10];
+    private int[] numbers = new int[11];
     private int attempt;
 
     public Player(String name) {
@@ -27,12 +27,12 @@ public class Player {
         this.attempt = attempt;
     }
 
-    public void setNumbers(int number) {
+    public void setNumber(int number) {
         numbers[attempt] = number;
         attempt++;
     }
 
-    public void fillNumber() {
+    public void fillNumbers() {
         Arrays.fill(numbers, 0, attempt, 0);
     }
 }

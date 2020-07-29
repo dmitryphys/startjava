@@ -18,20 +18,19 @@ public class GuessNumber {
 
     public void play() {
         computerNumber = random.nextInt(101);
-        setUp();
+        int i = 0;
+        setup();
         do {
-            for (int i = 0; i < count; i++) {
-                enterNumber(player1);
-                if (checkNumber(player1, i) == true) {
-                    break;
-                }
-                enterNumber(player2);
-                if (checkNumber(player2, i) == true) {
-                    break;
-                }
+            enterNumber(player1);
+            if (checkNumber(player1, i)) {
+                break;
             }
-            break;
-        } while (true);
+            enterNumber(player2);
+            if (checkNumber(player2, i)) {
+                break;
+            }
+            i++;
+        } while (i < count);
 
         writeAboutLimits(player1);
         writeAboutLimits(player2);
@@ -40,7 +39,7 @@ public class GuessNumber {
         printNumbers(player2);
     }
 
-    private void setUp() {
+    private void setup() {
         player1.fillNumbers();
         player2.fillNumbers();
         player1.setAttempt(0);
@@ -54,16 +53,15 @@ public class GuessNumber {
 
     private boolean checkNumber(Player player, int attempt) {
         int number = player.getNumbers()[attempt];
-        boolean isCompNumber = number == computerNumber;
-        if (isCompNumber) {
+        boolean checkResult = number == computerNumber;
+        if (checkResult) {
             System.out.println("Игрок " + player.getName() + " угадал число " + computerNumber + " с " + (player.getAttempt()) + " попытки");
-        } else
-            if (number < computerNumber) {
+        } else if (number < computerNumber) {
             System.out.println("Введенное Вами число " + number + " меньше того, что загадал компьютер");
         } else if (number > computerNumber) {
             System.out.println("Введенное Вами число " + number + " больше того, что загадал компьютер");
         }
-        return isCompNumber;
+        return checkResult;
     }
 
     private void writeAboutLimits(Player player) {
@@ -73,13 +71,13 @@ public class GuessNumber {
     }
 
     private void printNumbers(Player player) {
-        int counter = 0;
-        for (counter = 0; counter < player.getAttempt() - 1; counter++) {
-            System.out.print(player.getNumbers()[counter] + " ");
+        int i;
+        for (i = 0; i < player.getAttempt() - 1; i++) {
+            System.out.print(player.getNumbers()[i] + " ");
         }
-        boolean isLastElement = counter == player.getAttempt() - 1;
+        boolean isLastElement = i == player.getAttempt() - 1;
         if (isLastElement) {
-            System.out.println(player.getNumbers()[counter] + " ");
+            System.out.println(player.getNumbers()[i] + " ");
         }
     }
 }

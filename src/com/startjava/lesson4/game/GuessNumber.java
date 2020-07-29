@@ -1,5 +1,6 @@
 package com.startjava.lesson4.game;
 
+import java.util.Arrays;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -71,13 +72,12 @@ public class GuessNumber {
     }
 
     private void printNumbers(Player player) {
-        int i;
-        for (i = 0; i < player.getAttempt() - 1; i++) {
-            System.out.print(player.getNumbers()[i] + " ");
+        int[] arrCopy = Arrays.copyOf(player.getNumbers(), player.getNumbers().length);
+        if (arrCopy.length > 0) {
+            for  (int number : Arrays.copyOf(arrCopy, arrCopy.length - 1)) {
+                System.out.print(number + " ");
+            }
         }
-        boolean isLastElement = i == player.getAttempt() - 1;
-        if (isLastElement) {
-            System.out.println(player.getNumbers()[i] + " ");
-        }
+        player.getLastNumber();
     }
 }

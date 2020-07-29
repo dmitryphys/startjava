@@ -16,7 +16,14 @@ public class Player {
     }
 
     public int[] getNumbers() {
-        return Arrays.copyOf(numbers, numbers.length);
+        return Arrays.copyOf(numbers, attempt);
+    }
+
+    public void getLastNumber() {
+        int[] lastNumber = Arrays.copyOf(numbers, attempt);
+        if(lastNumber.length > 0) {
+            System.out.println(lastNumber[lastNumber.length - 1]);
+        }
     }
 
     public int getAttempt() {

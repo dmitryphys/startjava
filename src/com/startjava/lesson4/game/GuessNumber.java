@@ -69,10 +69,12 @@ public class GuessNumber {
 
     private void printNumbers(Player player) {
         int[] numbers = player.getNumbers();
+        int i = -1;
         for (int number : numbers) {
-            if (number != player.getLastNumber()) {
-                System.out.print(number + " ");
-            } else System.out.println(number + " ");
+            i++;
+            if (number == player.getLastNumber() && i == player.getAttempt() - 1) {
+                System.out.println(number);
+            } else System.out.print(number + " ");
         }
     }
 }

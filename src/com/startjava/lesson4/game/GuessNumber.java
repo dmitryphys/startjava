@@ -1,6 +1,5 @@
 package com.startjava.lesson4.game;
 
-import java.util.Arrays;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -22,19 +21,14 @@ public class GuessNumber {
         int i = 0;
         setup();
         do {
-            enterNumber(player1);
-            if (checkNumber(player1, i)) {
+            if (makeMove(player1, i)) {
                 break;
             }
-            enterNumber(player2);
-            if (checkNumber(player2, i)) {
+            if (makeMove(player2, i)) {
                 break;
             }
             i++;
         } while (i < count);
-
-        writeAboutLimits(player1);
-        writeAboutLimits(player2);
 
         printNumbers(player1);
         printNumbers(player2);
@@ -65,19 +59,20 @@ public class GuessNumber {
         return checkResult;
     }
 
-    private void writeAboutLimits(Player player) {
+    private boolean makeMove(Player player, int attempt) {
+        enterNumber(player);
         if (player.getAttempt() == count && player.getNumbers()[player.getAttempt() - 1] != computerNumber) {
             System.out.println("У игрока " + player.getName() + " закончились попытки!");
         }
+        return checkNumber(player, attempt);
     }
 
     private void printNumbers(Player player) {
-        int[] arrCopy = Arrays.copyOf(player.getNumbers(), player.getNumbers().length);
-        if (arrCopy.length > 0) {
-            for  (int number : Arrays.copyOf(arrCopy, arrCopy.length - 1)) {
+        int[] numbers = player.getNumbers();
+        for (int number : numbers) {
+            if (number != player.getLastNumber()) {
                 System.out.print(number + " ");
-            }
+            } else System.out.println(number + " ");
         }
-        player.getLastNumber();
     }
 }

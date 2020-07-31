@@ -33,7 +33,7 @@ public class Player {
     }
 
     public int getLastNumber() {
-        return Arrays.copyOf(numbers, attempt)[attempt - 1];
+        return numbers[attempt - 1];
     }
 
     public void fillNumbers() {

@@ -17,7 +17,8 @@ public class GuessNumber {
     }
 
     public void play() {
-        computerNumber = random.nextInt(101);
+//        computerNumber = random.nextInt(101);
+        computerNumber = 6;
         int i = 0;
         setup();
         do {
@@ -61,7 +62,7 @@ public class GuessNumber {
 
     private boolean makeMove(Player player, int attempt) {
         enterNumber(player);
-        if (player.getAttempt() == count && player.getNumbers()[player.getAttempt() - 1] != computerNumber) {
+        if (player.getAttempt() == count && !checkNumber(player, attempt)) {
             System.out.println("У игрока " + player.getName() + " закончились попытки!");
         }
         return checkNumber(player, attempt);
@@ -71,6 +72,7 @@ public class GuessNumber {
         int[] numbers = player.getNumbers();
         int i = -1;
         for (int number : numbers) {
+            System.out.print(number + " ");
             i++;
             if (number == player.getLastNumber() && i == player.getAttempt() - 1) {
                 System.out.println(number);

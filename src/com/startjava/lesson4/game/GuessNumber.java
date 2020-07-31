@@ -72,7 +72,6 @@ public class GuessNumber {
         int[] numbers = player.getNumbers();
         int i = -1;
         for (int number : numbers) {
-            System.out.print(number + " ");
             i++;
             if (number == player.getLastNumber() && i == player.getAttempt() - 1) {
                 System.out.println(number);

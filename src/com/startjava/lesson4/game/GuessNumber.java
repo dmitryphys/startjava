@@ -17,8 +17,7 @@ public class GuessNumber {
     }
 
     public void play() {
-//        computerNumber = random.nextInt(101);
-        computerNumber = 6;
+        computerNumber = random.nextInt(101);
         int i = 0;
         setup();
         do {
@@ -42,13 +41,24 @@ public class GuessNumber {
         player2.setAttempt(0);
     }
 
+    private boolean makeMove(Player player, int attempt) {
+        boolean isBreak = false;
+        enterNumber(player);
+        if (player.getAttempt() == count && !checkNumber(player, attempt)) {
+            System.out.println("У игрока " + player.getName() + " закончились попытки!");
+        } else {
+            isBreak = checkNumber(player, attempt);
+        }
+        return isBreak;
+    }
+
     private void enterNumber(Player player) {
-        System.out.print("Введите число для игрока " + player.getName() + ": ");
+        System.out.print("Игрок, " + player.getName() + ", введите число: ");
         player.setNumber(scan.nextInt());
     }
 
     private boolean checkNumber(Player player, int attempt) {
-        int number = player.getNumbers()[attempt];
+        int number = player.getLastNumber();
         boolean checkResult = number == computerNumber;
         if (checkResult) {
             System.out.println("Игрок " + player.getName() + " угадал число " + computerNumber + " с " + (player.getAttempt()) + " попытки");
@@ -60,22 +70,12 @@ public class GuessNumber {
         return checkResult;
     }
 
-    private boolean makeMove(Player player, int attempt) {
-        enterNumber(player);
-        if (player.getAttempt() == count && !checkNumber(player, attempt)) {
-            System.out.println("У игрока " + player.getName() + " закончились попытки!");
-        }
-        return checkNumber(player, attempt);
-    }
-
     private void printNumbers(Player player) {
         int[] numbers = player.getNumbers();
         int i = -1;
         for (int number : numbers) {
-            i++;
-            if (number == player.getLastNumber() && i == player.getAttempt() - 1) {
-                System.out.println(number);
-            } else System.out.print(number + " ");
+            System.out.print(number + " ");
         }
+        System.out.println();
     }
 }
